@@ -15,8 +15,8 @@ github_editme_path: tomjohnson1492/documentation-theme-jekyll/blob/gh-pages
 
 # variables
 
-sidebar_tagline: writers
-sidebar_version: version 3.0
+sidebar_tagline: Deep Learning Study
+sidebar_version: (TensorFlow, Caffe)
 theme_file: theme-green.css
 project_file_name: doc
 

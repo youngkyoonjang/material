@@ -5,9 +5,9 @@ product: all
 platform: all
 version: all
 destination: ../doc_designers
-topnav_title: Jekyll Documentation Theme
-homepage_title: Jekyll Documentation Theme &mdash; Designers
-site_title: Jekyll Documentation Theme &mdash; Designers
+topnav_title: Deep Learning Study
+homepage_title: Deep Learning Study
+site_title: Deep Learning Study
 disqus_shortname: idrbwjekyll
 google_analytics: UA-66296557-1
 github_editme_path: tomjohnson1492/documentation-theme-jekyll/blob/gh-pages
@@ -15,8 +15,8 @@ github_editme_path: tomjohnson1492/documentation-theme-jekyll/blob/gh-pages
 
 # variables
 
-sidebar_tagline: designers
-sidebar_version: version 3.0
+sidebar_tagline: Deep Learning Study
+sidebar_version: (TensorFlow, Caffe)
 project_file_name: doc
 
 port: 4001
