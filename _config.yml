@@ -6,17 +6,17 @@ product: all
 platform: all
 version: all
 destination: ../doc_designers
-topnav_title: Jekyll Documentation Theme
-homepage_title: Jekyll Documentation Theme &mdash; Designers
-site_title: Jekyll Documentation Theme &mdash; Designers
+topnav_title: Deep Learning Study
+homepage_title: Deep Learning Study
+site_title: Deep Learning Study
 disqus_shortname: idrbwjekyll
 google_analytics: UA-66296557-1
 github_editme_path: tomjohnson1492/documentation-theme-jekyll/blob/gh-pages
 # don't use a slash before or after the above path. here's how this url gets written out in page.html: https://github.com/{{site.github_editme_path}}{{page.url | replace: '.html', '.md'}}
 # variables
 
-sidebar_tagline: designers
-sidebar_version: version 3.0
+sidebar_tagline: Deep Learning
+sidebar_version: TensorFlow, Caffe, ...
 
 port: 4001
 
