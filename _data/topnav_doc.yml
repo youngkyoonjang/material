@@ -9,7 +9,8 @@ topnav:
       platform: all
       product: all
       version: all
-   - title: Facebook Group
+      
+    - title: Facebook Group
       external_url: https://www.facebook.com/groups/caffestudy/
       audience: writers, designers
       platform: all
