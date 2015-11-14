@@ -1,3 +1,10 @@
+---
+title: Installation Ubuntu 14.04
+tags: [caffe]
+keywords: start, introduction, begin, install, build, hello world,
+last_updated: August 12, 2015
+---
+
 # 1. 영문 설치 가이드
 
 [우분투 14.04에서의 Caffe 설치 (영어)](https://github.com/BVLC/caffe/wiki/Ubuntu-14.04-VirtualBox-VM)
