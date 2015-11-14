@@ -36,11 +36,10 @@ summary: "Koosy 님이 Editing 중입니다."
 * 딥러닝 기술을 각 분야에 전문적으로 활용할 수 있는 전문가들의 공동 프로젝트 협력에 기여함
  
 ### 참여 방법
-원하는 사람 아무나...
-적극적으로 컨텐츠를 만들어 주실 분들부터 wiki page를 보고 공부를 하실 분들, 눈팅만 하실 분들까지 참여에는 제한이 없습니다. 저희도 모두 처음에는 눈팅부터 시작하니깐요. 언젠가는 모두 협력하여 의미있는 오픈 커뮤니티가 될 것을 기대합니다.
-wiki page는 아무나 편집하셔도 됩니다. (이 readme 파일도 마음에 안드시면 바꾸셔도 됩니다. ㅎㅎ) 
+위 목적과 비전에 동의하시는 분들은 누구나 다 참여 가능합니다. 딥러닝에 처음 입문하는 초보자부터 실무에 계신 전문가까지. 눈팅만 하실 분들부터 적극적으로 경험과 지식을 나눠주실 분들까지. 다만 페이지에 있는 모든 정보는 어떤 목적으로든 공유하는데 동의해 주시길 원합니다. 학교에서 강의자료로 활용해도 좋고, 기업에서 내부 스터디 자료로 활용하셔도 좋습니다. 이렇게 어떤 방식으로든 활용된 자료는 언젠가는 누군가에 의해 더 발전된 지식으로 다시 돌아올것을 믿습니다. 
 
-* [Issue](https://github.com/koosyong/caffestudy/issues) 페이지에서 의견을 나눠 주시기 바랍니다.
-* [Wiki page](https://github.com/koosyong/caffestudy/wiki) 에 하나씩 하나씩 컨텐츠를 채워가려고 합니다. 스터디 그룹인 만큼 많은 분들이 같이 참여하여 주시길 바랍니다. 
-* [Source code](https://github.com/koosyong/caffestudy) GIT 를 이용하셔서 스터디에 필요한 소스코드를 올려주시기 바랍니다. GIT가 처음인 분들은 [관련 이슈](https://github.com/koosyong/caffestudy/issues/4) 에 질문을 남겨주세요.
-* 새로운 업데이트를 받아보시기 원하시는 분들은 위에 눈모양으로 생긴 Notifications 버튼을 'Watching'으로 바꿔주세요. 또는 일부 Issue에 관한 내용만 받아보시길 원하면 각 Issue 별로 'subscribe' 버튼이 있습니다.
+기본적으로 본 페이지는 누구나 참여해서 누구나 수정할 수 있습니다. 상위 메뉴에 있는 [Github](https://github.com/DeepLearningStudy) 중에서 [material](https://github.com/DeepLearningStudy/material) 저장고가 본 페이지의 소스파일 입니다. 다만 수정하신 후에 페북그룹에 간략히 업데이트 상황을 알리신 후에 맴버들이 확인하는 절차를 거쳐주시면 감사하겠습니다.
+
+페이지를 수정하는 가장 쉬운 방법은 각 페이지의 목차 아래 있는 Edit me를 클릭하시는 것입니다. Github에 로그인한 후에 각 페이지의 mark down 형태로 정의된 .md 파일을 수정하시고 commit 버튼을 누르시면 됩니다. 새로운 페이지를 추가하고 싶으시면, material 저장고에서 [_data](https://github.com/DeepLearningStudy/material/tree/gh-pages/_data) 폴더에 있는 [sidebar_doc.yml](https://github.com/DeepLearningStudy/material/blob/gh-pages/_data/sidebar_doc.yml)을 수정하셔서 페이지를 원하는 곳에 추가하시고, 동일한 이름의 .md 파일을 새로 만드시면 됩니다. 
+
+더 자세한 내용은 페이스북 그룹에 문의하시거나, [Koosy](https://www.facebook.com/Koosyong)를 찾아주세요.
