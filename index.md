@@ -18,17 +18,17 @@ summary: "Koosy 님이 Editing 중입니다."
 몇 사람이 가지고 있는 제한된 지식과 노력으로는 부족합니다. 또한 내용의 수준을 떠나서 딥러닝에 관련된 어떠한 정보도 공유할 가치가 있습니다. 이제 막 딥러닝에 입문한 학생부터 실제 업무에 활용하고 있는 전문가까지 많은 분들의 참여를 바랍니다. 
 
 ### 목적 
+* [TensorFlow](http://tensorflow.org/) 및 [caffe](http://caffe.berkeleyvision.org/) 오픈소스 분석을 통해 [deep learning](http://deeplearning.net/) 이해.
+* caffe 에서 사용하는 GPU programming (NVIDIA CUDA), BLAST, Google protocol buffers, lmdb 등 유용한 dependent 라이브러리들의 이해 및 활용
+* caffe test source code 분석을 통한 caffe architecture 및 usage 이해
+* 다른 머신러닝, 컴퓨터비젼, 로보틱스 소프트웨어 개발을 위한 source level 에서의 caffe 라이브러리 활용
+* 스터디 자료들을 모아서 튜토리얼 제작 및 공동 프로젝트 ??
 
 ### 비전 
 
 ### 참여 방법
 
 ### 목적
-1. [TensorFlow](http://tensorflow.org/) 및 [caffe](http://caffe.berkeleyvision.org/) 오픈소스 분석을 통해 [deep learning](http://deeplearning.net/) 이해.
-2. caffe 에서 사용하는 GPU programming (NVIDIA CUDA), BLAST, Google protocol buffers, lmdb 등 유용한 dependent 라이브러리들의 이해 및 활용
-3. caffe test source code 분석을 통한 caffe architecture 및 usage 이해
-4. 다른 머신러닝, 컴퓨터비젼, 로보틱스 소프트웨어 개발을 위한 source level 에서의 caffe 라이브러리 활용
-5. 스터디 자료들을 모아서 튜토리얼 제작 및 공동 프로젝트 ??
 
 ### 대상
 원하는 사람 아무나...
