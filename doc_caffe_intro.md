@@ -3,7 +3,6 @@ title: Introduction to Caffe
 tags: [caffe]
 keywords: start, introduction, begin, install, build, hello world,
 last_updated: August 12, 2015
-summary: "공사중 입니다."
 ---
 ## [Caffe: Convolutional Architecture for Fast Feature Embedding](http://arxiv.org/abs/1408.5093)
     @inproceedings{jia2014caffe,
