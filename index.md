@@ -18,6 +18,15 @@ summary: "Koosy 님이 Editing 중입니다."
 몇 사람이 가지고 있는 제한된 지식과 노력으로는 부족합니다. 또한 내용의 수준을 떠나서 딥러닝에 관련된 어떠한 정보도 공유할 가치가 있습니다. 이제 막 딥러닝에 입문한 학생부터 실제 업무에 활용하고 있는 전문가까지 많은 분들의 참여를 바랍니다. 
 
 ### 목적 
+본 페이지는 다음과 같은 목적을 가지고 제작되고 활용되어지길 바랍니다. 
+* 딥러닝 오픈소스 스터디 그룹원들의 지식이 정돈된 문서 및 소스코드 형태로 교류되고 남겨진다.
+* 딥러닝을 새로 시작하는 사람들이 실수를 줄이고 빠른 시간에 지식을 체득하는데 도움을 준다. 
+* 오픈소스 라이브러리(TensorFlow, Caffe 등)를 사용하여 딥러닝을 구현할 수 있도록 가이드 역할을 한다.
+** 오픈소스 공식사이트에 문서화되지 않은 부분 또는 이해하기 힘든 부분을 한글로 보충한다.
+** 오픈소스 라이브러리 사용자들의 경험에서 우러나온 실습 예제를 제공한다. 
+** 오픈소스 라이브러리를 활용한 다양한 딥러닝 응용예를 설명과 함께 공유한다. 
+
+
 * [TensorFlow](http://tensorflow.org/) 및 [caffe](http://caffe.berkeleyvision.org/) 오픈소스 분석을 통해 [deep learning](http://deeplearning.net/) 이해.
 * caffe 에서 사용하는 GPU programming (NVIDIA CUDA), BLAST, Google protocol buffers, lmdb 등 유용한 dependent 라이브러리들의 이해 및 활용
 * caffe test source code 분석을 통한 caffe architecture 및 usage 이해
