@@ -5,7 +5,6 @@ tags:
 type: first_page
 homepage: true
 published: true
-summary: "Koosy 님이 Editing 중입니다."
 ---
 
 ### 소개
