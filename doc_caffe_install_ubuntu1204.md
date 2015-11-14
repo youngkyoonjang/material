@@ -1,3 +1,9 @@
+---
+title: Installation Ubuntu 12.04
+tags: [caffe]
+keywords: start, introduction, begin, install, build, hello world,
+last_updated: August 12, 2015
+---
 개인적인 필요가 있어서 Neuralix님이 올려주신 [Ubuntu 14.04 설치법](install_ubuntu) 및
 [caffe 사이트의 설치법](http://caffe.berkeleyvision.org/installation.html) 참조하여, cmake 빌드에 성공하였습니다.
 이미 성공한 뒤에 막 올리는 설치법이기 때문에 CUDA에 대한 설치법은 적지 않겠으며, 기억에 의존해서 적는 방법들이기 때문에 성공을 장담하지는 못합니다.
