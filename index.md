@@ -1,11 +1,17 @@
 ---
 title: Introduction
 tags: 
-  - "getting-started"
+  - "introduction"
 type: first_page
 homepage: true
 published: true
 ---
+
+### 소개
+[TensorFlow](http://tensorflow.org/) 및 [caffe](http://caffe.berkeleyvision.org/) 등 오픈소스를 활용하여 딥러닝을 같이 공부해 나가는 공간입니다. 
+이 페이지는 [딥러닝 오픈소스 스터디](https://www.facebook.com/groups/caffestudy/) 페이스북 그룹에 참여하는 맴버들의 노력을 모아 만들었습니다.
+
+### 참여 방법
 
 ### 목적
 1. [TensorFlow](http://tensorflow.org/) 및 [caffe](http://caffe.berkeleyvision.org/) 오픈소스 분석을 통해 [deep learning](http://deeplearning.net/) 이해.
