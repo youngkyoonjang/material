@@ -24,31 +24,21 @@ summary: "Koosy 님이 Editing 중입니다."
 * 오픈소스 라이브러리(TensorFlow, Caffe 등)를 사용하여 딥러닝을 구현할 수 있도록 가이드 역할을 한다.
   * 오픈소스 공식사이트에 문서화되지 않은 부분 또는 이해하기 힘든 부분을 한글로 보충한다.
   * 오픈소스 라이브러리 사용자들의 경험에서 우러나온 실습 예제를 제공한다. 
-  * 오픈소스 라이브러리를 활용한 다양한 딥러닝 응용예를 설명과 함께 공유한다. 
-
-
-* [TensorFlow](http://tensorflow.org/) 및 [caffe](http://caffe.berkeleyvision.org/) 오픈소스 분석을 통해 [deep learning](http://deeplearning.net/) 이해.
-* caffe 에서 사용하는 GPU programming (NVIDIA CUDA), BLAST, Google protocol buffers, lmdb 등 유용한 dependent 라이브러리들의 이해 및 활용
-* caffe test source code 분석을 통한 caffe architecture 및 usage 이해
-* 다른 머신러닝, 컴퓨터비젼, 로보틱스 소프트웨어 개발을 위한 source level 에서의 caffe 라이브러리 활용
-* 스터디 자료들을 모아서 튜토리얼 제작 및 공동 프로젝트 ??
+  * 오픈소스 라이브러리를 활용한 다양한 딥러닝 응용 예를 설명과 함께 공유한다. 
 
 ### 비전 
-
+최근 (2015년 11월) 구글의 [TensorFlow](), 마이크로소프트의 [DMLT]()등이 공개되면서 미래 머신러닝의 주도권 싸움이 시작되었습니다. 특히 오픈소스를 표방한 이유는 이 주도권 경쟁의 핵심은 개발실무자 오픈커뮤니티의 확보이기 때문입니다. 이에 비해 상대적으로 폐쇄적인 시스템을 가진 한국 연구실 및 기업에게 시급한 것은 개발자들의 오픈커뮤니티 강화라고 생각합니다. 이를 위해 딥러닝 오픈소스 스터디 모임은 오픈소스를 활용한 딥러닝 구현에서 더 나아가 다음과 같은 비전을 추구합니다.
+* 딥러닝 분야에서 세계적인 추세에 따라가고 지식의 교류 및 재생산을 통해 한국 딥러닝 실무자 커뮤니티의 저변 확대 
+* 본 페이지의 정돈된 정보를 통해 딥러닝 초보자가 빠른 시간에 실무자 및 전문가로 발돋움하여 오픈커뮤니티의 일원으로 편입될 수 있도록 함 
+* 기존 오픈소스의 스터디 및 분석을 통해 향후 더 발전된 딥러닝 라이브러리의 개발 및 구축에 기여함
+* 딥러닝 기술을 각 분야에 전문적으로 활용할 수 있는 전문가들의 공동 프로젝트 협력에 기여함
+ 
 ### 참여 방법
-
-### 목적
-
-### 대상
 원하는 사람 아무나...
 적극적으로 컨텐츠를 만들어 주실 분들부터 wiki page를 보고 공부를 하실 분들, 눈팅만 하실 분들까지 참여에는 제한이 없습니다. 저희도 모두 처음에는 눈팅부터 시작하니깐요. 언젠가는 모두 협력하여 의미있는 오픈 커뮤니티가 될 것을 기대합니다.
 wiki page는 아무나 편집하셔도 됩니다. (이 readme 파일도 마음에 안드시면 바꾸셔도 됩니다. ㅎㅎ) 
 
-### 운영에 관하여
 * [Issue](https://github.com/koosyong/caffestudy/issues) 페이지에서 의견을 나눠 주시기 바랍니다.
 * [Wiki page](https://github.com/koosyong/caffestudy/wiki) 에 하나씩 하나씩 컨텐츠를 채워가려고 합니다. 스터디 그룹인 만큼 많은 분들이 같이 참여하여 주시길 바랍니다. 
 * [Source code](https://github.com/koosyong/caffestudy) GIT 를 이용하셔서 스터디에 필요한 소스코드를 올려주시기 바랍니다. GIT가 처음인 분들은 [관련 이슈](https://github.com/koosyong/caffestudy/issues/4) 에 질문을 남겨주세요.
 * 새로운 업데이트를 받아보시기 원하시는 분들은 위에 눈모양으로 생긴 Notifications 버튼을 'Watching'으로 바꿔주세요. 또는 일부 Issue에 관한 내용만 받아보시길 원하면 각 Issue 별로 'subscribe' 버튼이 있습니다.
-* 아래 베너를 누르시면 그룹 채팅할 수 있습니다. [@jihoonl](https://github.com/jihoonl) 님께서 추천해 주셨습니다.
-
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/koosyong/caffestudy?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
