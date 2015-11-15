@@ -42,7 +42,24 @@ entries:
           platform: all
           product: all
           version: all
-
+        - title: Sites
+          url: /doc_deeplearning_site.html
+          audience: writers, designers
+          platform: all
+          product: all
+          version: all
+        - title: Papers
+          url: /doc_deeplearning_paper.html
+          audience: writers, designers
+          platform: all
+          product: all
+          version: all
+        - title: Video lectures
+          url: /doc_deeplearning_video.html
+          audience: writers, designers
+          platform: all
+          product: all
+          version: all
     - title: TensorFlow
       audience: writers, designers
       platform: all
