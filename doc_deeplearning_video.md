@@ -31,3 +31,9 @@ Nando de Freitas 교수가 2015 봄에 옥스포드에서 강의한 16강 짜리
 여기 공개된 동영상 강의들이면 머신러닝 기초부터 최신 딥러닝 기술까지 완벽 정리입니다. 
 
    * [비디오 링크](http://videolectures.net/deeplearning2015_montreal/)
+
+### Nvidia에서 만든 딥러닝 강의 영상들이네요. 도움이 많이 될 것 같습니다.
+
+  * [비디오 링크](https://www.youtube.com/playlist?list=PL5B692fm6--tI-ijknnVZWbXU2H4JpSYe)
+  
+
