@@ -4,6 +4,8 @@ tags: [caffe]
 keywords: start, introduction, begin, install, build, hello world,
 last_updated: August 12, 2015
 ---
+By [koosy](https://www.facebook.com/Koosyong) on 2015.09.24
+
 두 번째 예제는 Caffe의 기본 구조체인 [Blob](http://caffe.berkeleyvision.org/tutorial/net_layer_blob.html)에 대해서 좀 더 알아보겠습니다. 예제파일은 [요기](https://github.com/koosyong/caffestudy/tree/master/examples/ex2_blob)있습니다. 파일 [준비](https://github.com/koosyong/caffestudy/wiki/hello_caffe#준비)단계는 앞에서 설명했으므로 생략하구요, 바로 소스파일로 들어가 봅시다.  
 
 ***
