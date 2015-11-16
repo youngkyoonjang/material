@@ -1,5 +1,5 @@
 ---
-title: Example 1. Hello Caffe
+title: C++ Example 1. Hello Caffe
 tags: [caffe]
 keywords: start, introduction, begin, install, build, hello world,
 last_updated: August 12, 2015
