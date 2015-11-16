@@ -4,6 +4,8 @@ tags: [caffe]
 keywords: start, introduction, begin, install, build, hello world,
 last_updated: August 12, 2015
 ---
+By [koosy](https://www.facebook.com/Koosyong) on 2015.05.19
+
 ## [Caffe: Convolutional Architecture for Fast Feature Embedding](http://arxiv.org/abs/1408.5093)
     @inproceedings{jia2014caffe,
       title={Caffe: Convolutional architecture for fast feature embedding},
