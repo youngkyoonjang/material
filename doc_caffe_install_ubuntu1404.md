@@ -4,8 +4,7 @@ tags: [caffe]
 keywords: start, introduction, begin, install, build, hello world,
 last_updated: August 12, 2015
 ---
-작성자: [Young H. Oh](https://github.com/garion9013)
-작성일: 2015년 8월 26일 
+By [Young H. Oh](https://github.com/garion9013) on 2015.08.26
 
 # 1. 영문 설치 가이드
 
