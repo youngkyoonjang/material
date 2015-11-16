@@ -4,7 +4,7 @@ tags: [caffe]
 keywords: start, introduction, begin, install, build, hello world,
 last_updated: August 12, 2015
 ---
-By [HotaekHan](https://www.facebook.com/hotack.han?fref=pb_other) on 2015.08.26
+By [HotaekHan](https://www.facebook.com/hotack.han?fref=pb_other) on 2015.05.27
 
 우선 [WinCaffe](https://github.com/niuzhiheng/caffe)
 해당 프로젝트 설명에서 나오는 설명대로 진행하면 대부분 빌드가 되시리라 생각합니다.
