@@ -9,7 +9,7 @@ published: true
 
 ### 소개
 [TensorFlow](http://tensorflow.org/) 및 [Caffe](http://caffe.berkeleyvision.org/) 등 오픈소스를 활용하여 딥러닝을 같이 공부해 나가는 공간입니다. 
-이 페이지는 [딥러닝 오픈소스 스터디](https://www.facebook.com/groups/caffestudy/) 페이스북 그룹에 참여하는 맴버들의 노력을 모아 만들었습니다.
+이 페이지는 [딥러닝 오픈소스 스터디](https://www.facebook.com/groups/caffestudy/) 페이스북 그룹 맴버들의 노력을 모아 만들었습니다.
 처음 오신 분들은 페이스북 그룹 맴버가 되시길 추천드리며, 딥러닝 전반에 대한 질문을 포함하여 어떠한 자유로운 의견도 환영합니다.
 
 본 페이지는 페북에서 나누는 논의들을 기초로 딥러닝을 스스로 공부할 수 있는 정돈된 문서를 남기고자 합니다. 딥러닝에 대한 이론부터 TensorFlow 및 Caffe 등과 같은 오픈소스를 통한 실습, 더 나아가 컴퓨터 비전 및 음성 인식 등 머신러닝과 로보틱스로의 활용까지 가능한 넓은 범위의 내용을 다룰 수 있기를 바랍니다.
