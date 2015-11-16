@@ -4,6 +4,7 @@ tags: [caffe]
 keywords: start, introduction, begin, install, build, hello world,
 last_updated: August 12, 2015
 ---
+By [garion9013](https://www.facebook.com/ohyounghwan?fref=pb_other) on 2015.08.26
 
 이렇게 하면 됩니다~까지는 아니고, 아주 간단하게 제 Mac에서 설치된 사례를 올려놓겠습니다.<br>
 대부분의 설치법은 [hoondy님의 블로그](http://goo.gl/pvVjTh)를 참고했으며,
