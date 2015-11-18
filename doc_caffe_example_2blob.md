@@ -49,7 +49,7 @@ cout << "CompTime of "<< (X) <<": " << (double)(tEnd-tStart)/CLOCKS_PER_SEC<<end
 Blob<Dtype>* const blob = new Blob<Dtype>(20, 30, 40, 50);
 ```
 
-이 부분은 첫 번째 예제와 같이 n=20, c=30, h=40, w=50 인 blob을 생성했습니다. 한번 생성된 blob은 다음 보시는것처럼 크기를 재형상화(reshaping)할 수 있습니다.
+이 부분은 첫 번째 예제와 같이 n=20, c=30, h=40, w=50 인 blob을 생성했습니다. 한번 생성된 blob은 다음 보시는 것처럼 크기를 재형상화(reshaping)할 수 있습니다.
 
 ```
 blob->Reshape(50, 40, 30, 20);
