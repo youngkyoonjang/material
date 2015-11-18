@@ -40,7 +40,7 @@ caffe는 네트워크 모델의 학습, 테스트, 튜닝, 배포를 위한 완�
 * **Pre-trained reference models**: 비젼인식에 관한 참고모델(AlexNet ImageNet, R-CNN detection model) 제공 (BSD license 아님)
 
 ### Comparison to related software
-![caffe_comparison](https://github.com/koosyong/caffestudy/blob/master/docs/wiki/caffe_comparison.png)
+![caffe_comparison](https://github.com/DeepLearningStudy/caffe/blob/master/docs/wiki/caffe_comparison.png)
 
 ### Architecture
 * Data storage
