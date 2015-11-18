@@ -9,7 +9,6 @@ By [koosy](https://www.facebook.com/Koosyong) on 2015.09.24
 
 예제파일은 [요기](https://github.com/DeepLearningStudy/caffe/tree/master/examples/ex2_blob)있습니다. 파일 [준비](http://deeplearningstudy.github.io/material/doc_caffe_example_1hellocaffe.html#준비)단계는 앞에서 설명했으므로 생략하구요, 바로 소스파일로 들어가 봅시다.  
 
-***
 ## 소스파일
 이번 예제에서는 두 개의 소스파일을 준비했습니다. `ex_blob.cpp`과 `ex_math.cpp` 인데요. CMake에 아직 익숙하지 않으신 분들을 위해서 한 프로젝트에서 두 개의 실행파일을 어떻게 만드는지 간단히 알아볼까요? `CMakeLists.txt`파일을 열어보면 다음과 같습니다. (프로젝트 파일을 여는 방법은 [여기](http://deeplearningstudy.github.io/material/doc_caffe_example_1hellocaffe.html#소스파일)을 보세요.)
 
