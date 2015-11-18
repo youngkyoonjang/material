@@ -9,7 +9,7 @@ destination: ../doc_designers
 topnav_title: Deep Learning Study
 homepage_title: Deep Learning Study
 site_title: Deep Learning Study
-disqus_shortname:
+disqus_shortname: seongyongkoo
 google_analytics:
 github_editme_path: DeepLearningStudy/material/blob/gh-pages
 # don't use a slash before or after the above path. here's how this url gets written out in page.html: https://github.com/{{site.github_editme_path}}{{page.url | replace: '.html', '.md'}}
