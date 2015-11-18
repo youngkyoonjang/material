@@ -3,7 +3,7 @@ title: Introduction to TensorFlow
 tags: [TensorFlow]
 keywords: start, introduction, begin, install, build, hello world,
 last_updated: August 12, 2015
-summary: "공사중 입니다."
+summary: "Koosy님이 작성 하려고 준비중 입니다. 누가 먼저 뺏어가셔도 좋습니다."
 ---
 
 # MNIST 데이터 다운로드 및 읽어오기
