@@ -1,9 +1,9 @@
 allowed-tags:
-  - getting-started
-  - content-types
-  - navigation
-  - formatting
-  - publishing
+  - introduction
+  - caffe
+  - tensorflow
+  - koosy
+  - example
   - single-sourcing
   - special-layouts
 
