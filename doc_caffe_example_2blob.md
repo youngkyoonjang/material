@@ -3,10 +3,11 @@ title: C++ Example 2. Blob
 tags: [caffe]
 keywords: start, introduction, begin, install, build, hello world,
 last_updated: August 12, 2015
-summary: "두 번째 예제는 Caffe의 기본 구조체인 [Blob](http://caffe.berkeleyvision.org/tutorial/net_layer_blob.html)에 대해서 좀 더 알아보겠습니다. "
+summary: "두 번째 예제는 Caffe의 기본 구조체인 Blob에 대해서 좀 더 알아보겠습니다. "
 ---
 By [koosy](https://www.facebook.com/Koosyong) on 2015.09.24
 
+[Blob](http://caffe.berkeleyvision.org/tutorial/net_layer_blob.html)은 Caffe의 기본 데이터구조 입니다. 
 예제파일은 [요기](https://github.com/DeepLearningStudy/caffe/tree/master/examples/ex2_blob)있습니다. 파일 [준비](http://deeplearningstudy.github.io/material/doc_caffe_example_1hellocaffe.html#준비)단계는 앞에서 설명했으므로 생략하구요, 바로 소스파일로 들어가 봅시다.  
 
 ## 소스파일
