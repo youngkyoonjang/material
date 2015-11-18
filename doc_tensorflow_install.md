@@ -4,8 +4,6 @@ tags: [TensorFlow]
 keywords: start, introduction, begin, install, build, hello world,
 last_updated: August 12, 2015
 ---
-By [조영근](https://www.facebook.com/Brian.YG.Cho) on 2015.11.18
-
 설치 환경: Ubuntu 14.04.3 64bit / Nvidia GTX 760 / Cuda 7.0
 
 참고: http://www.tensorflow.org/get_started/os_setup.md#installing_from_sources/
