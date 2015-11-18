@@ -35,24 +35,24 @@ target_link_libraries(ex_math ${Caffe_LIBRARIES})
 두 번째 `ex_math.cpp` 파일에서는 Caffe가 지원하는 blob에서의 연산 종류가 무엇이 있는지 알아보고, 그 중에 몇 가지는 한번 테스트 해보도록 하죠.. 
 
 ## blob 초기화 및 데이터 할당
-여러분들의 [`ex_blob.cpp`](https://github.com/koosyong/caffestudy/blob/master/examples/ex2_blob/ex_blob.cpp)파일을 한번 열어보세요. 헤더파일 및 선언부는 특별한건 없지만, 나중에 계산 속도를 측정해 보기 위해서 `COMPTIME()` 하나 만들어 봤어요. 
+여러분들의 [`ex_blob.cpp`](https://github.com/DeepLearningStudy/caffe/blob/master/examples/ex2_blob/ex_blob.cpp)파일을 한번 열어보세요. 헤더파일 및 선언부는 특별한건 없지만, 나중에 계산 속도를 측정해 보기 위해서 `COMPTIME()` 하나 만들어 봤어요. 
 
 ```
-   clock_t tStart, tEnd;
-   #define COMPTIME(X)          \
-   cout << "CompTime of "<< (X) <<": " << (double)(tEnd-tStart)/CLOCKS_PER_SEC<<endl;
+clock_t tStart, tEnd;
+#define COMPTIME(X)          \
+cout << "CompTime of "<< (X) <<": " << (double)(tEnd-tStart)/CLOCKS_PER_SEC<<endl;
 ```
 
 그럼 `main()`함수 안에 있는 초기화 부분을 먼저 보도록 합시다. 
 
 ```
-   Blob<Dtype>* const blob = new Blob<Dtype>(20, 30, 40, 50);
+Blob<Dtype>* const blob = new Blob<Dtype>(20, 30, 40, 50);
 ```
 
 이 부분은 첫 번째 예제와 같이 n=20, c=30, h=40, w=50 인 blob을 생성했습니다. 한번 생성된 blob은 다음 보시는것처럼 크기를 재형상화(reshaping)할 수 있습니다.
 
 ```
-   blob->Reshape(50, 40, 30, 20);
+blob->Reshape(50, 40, 30, 20);
 ```
 
 이것은 나중에 기존에 만들어진 네트워크 모델에다가 새로운 데이터를 넣어서 prediction을 하거나, fine tuning 할 때 유용하게 사용할 수 있으니 잘 봐두세요.
@@ -60,34 +60,34 @@ target_link_libraries(ex_math ${Caffe_LIBRARIES})
 그 다음에는 `UniformFiller`로 균일분포에서 셈플링한 난수를 blob에 채워봅시다.
 
 ```
-   FillerParameter filler_param;
-   filler_param.set_min(-3);
-   filler_param.set_max(3);
-   UniformFiller<Dtype> filler(filler_param);
-   filler.Fill(blob);
+FillerParameter filler_param;
+filler_param.set_min(-3);
+filler_param.set_max(3);
+UniformFiller<Dtype> filler(filler_param);
+filler.Fill(blob);
 ```
 
-`UniformFiller`외에도 `Filler`에는 `ConstantFiller`, `GaussianFiller`, `PositiveUnitballFiller`, `XavierFiller` 등이 있습니다. 이름만 보셔도 감이 오시죠? 자세한 정보는 [`Filler.hpp`](https://github.com/BVLC/caffe/blob/master/include/caffe/filler.hpp)를 보세요. ([Filler](https://github.com/koosyong/caffestudy/wiki/Filler)만 다루는 위키페이지를 하나 만들어야겠습니다.)
+`UniformFiller`외에도 `Filler`에는 `ConstantFiller`, `GaussianFiller`, `PositiveUnitballFiller`, `XavierFiller` 등이 있습니다. 이름만 보셔도 감이 오시죠? 자세한 정보는 [`Filler.hpp`](https://github.com/BVLC/caffe/blob/master/include/caffe/filler.hpp)를 보세요. (Filler만 다루는 페이지를 하나 만들어야겠습니다.)
 
-데이터로 채워진 blob 값을 보고 싶으시죠? 아니면 Filler를 쓰지 않고 각 셀단위로 데이터를 저장하고 싶으세요? 그건 dataset을 다루는 [다음 예제](https://github.com/koosyong/caffestudy/wiki/ex_dataset)에서 같이 알아보도록 하겠습니다.
+데이터로 채워진 blob 값을 보고 싶으시죠? 아니면 Filler를 쓰지 않고 각 셀단위로 데이터를 저장하고 싶으세요? 그건 dataset을 다루는 [다음 예제](https://github.com/DeepLearningStudy/caffe/tree/master/examples/ex3_dataset)에서 같이 알아보도록 하겠습니다.
 
 ## CPU/GPU blob 연산
-이번에는 blob 안에 있는 데이터의 연산이 어떻게 이루어지는지 알아보도록 하겠습니다. blob은 여러가지 데이터 연산함수들을 제공하는데요. 자세한건 'ex_math.cpp`에서 다루고, 여기서는 `sumsq_data()` 함수 (sum of squares, 제곱합)를 예로 들어서 blob의 연산 메커니즘을 설명하도록 하겠습니다.
+이번에는 blob 안에 있는 데이터의 연산이 어떻게 이루어지는지 알아보도록 하겠습니다. blob은 여러가지 데이터 연산함수들을 제공하는데요. 자세한건 `ex_math.cpp`에서 다루고, 여기서는 `sumsq_data()` 함수 (sum of squares, 제곱합)를 예로 들어서 blob의 연산 메커니즘을 설명하도록 하겠습니다.
 
 먼저 `sumsq_data()`함수가 무얼 하는 함수인지 아래 코드를 볼까요?
 
 ```
-   Dtype expected_sumsq = 0;
-   const Dtype* data = blob->cpu_data();
-   for (int i = 0; i < blob->count(); ++i) {
-       expected_sumsq += data[i] * data[i];
-   }
-   cout<<endl;
-   cout<<"expected sumsq of blob: "<<expected_sumsq<<endl;
-   tStart = clock();
-   cout<<"sumsq of blob on cpu: "<<blob->sumsq_data()<<endl;
-   tEnd = clock();
-   COMPTIME("sumsq of blob on cpu");
+Dtype expected_sumsq = 0;
+const Dtype* data = blob->cpu_data();
+for (int i = 0; i < blob->count(); ++i) {
+   expected_sumsq += data[i] * data[i];
+}
+cout<<endl;
+cout<<"expected sumsq of blob: "<<expected_sumsq<<endl;
+tStart = clock();
+cout<<"sumsq of blob on cpu: "<<blob->sumsq_data()<<endl;
+tEnd = clock();
+COMPTIME("sumsq of blob on cpu");
 ```
 
 수동으로 제곱합을 계산한 값과 `sumsq_data()` 함수를 이용한 값을 비교해 보았습니다. 같아야겠지요? 나중에 실행결과를 직접 확인해 보시구요. 여기서 눈여겨 봐야할 것은 특별한것(?) 없이 `blob->sumsq_data()`함수를 한번 콜 하면 이 연산은 CPU 위에서 이루어진다는 점입니다. 계산 시간은 제 컴퓨터로 0.001164초 걸리는군요. 
@@ -95,27 +95,27 @@ target_link_libraries(ex_math ${Caffe_LIBRARIES})
 그럼 이번에는 이 연산을 GPU 위에서 해 볼까요? 그 아래 코드를 한번 봅시다.
 
 ```
-   tStart = clock();
-   blob->gpu_data(); // memcopy host to device (to_gpu() in syncedmem.cpp)
-   tEnd = clock();
-   COMPTIME("cpu->gpu time");
+tStart = clock();
+blob->gpu_data(); // memcopy host to device (to_gpu() in syncedmem.cpp)
+tEnd = clock();
+COMPTIME("cpu->gpu time");
 
-   tStart = clock();
-   cout<<"sumsq of blob on gpu: "<<blob->sumsq_data()<<endl;
-   tEnd = clock();
-   COMPTIME("sumsq on gpu time");
+tStart = clock();
+cout<<"sumsq of blob on gpu: "<<blob->sumsq_data()<<endl;
+tEnd = clock();
+COMPTIME("sumsq on gpu time");
 ```
 
 계산시간을 측정하는 부분을 빼면 코드가 딱 두 줄 인데요. 첫 번째로 `blob->gpu_data();` 이 명령은 host (CPU)에 있는 메모리를 GPU 메모리로 카피하라는 명령입니다. 옆에 주석에 적어놓은것 처럼, [`syncedmem.cpp`](https://github.com/BVLC/caffe/blob/master/src/caffe/syncedmem.cpp)에서 이 명령을 수행하는데요. 한번 따라가 볼까요? 
 
 ```
-   const void* SyncedMemory::gpu_data() {
-   #ifndef CPU_ONLY
-   to_gpu();
-   return (const void*)gpu_ptr_;
-   #else
-   NO_GPU;
-   #endif
+const void* SyncedMemory::gpu_data() {
+#ifndef CPU_ONLY
+to_gpu();
+return (const void*)gpu_ptr_;
+#else
+NO_GPU;
+#endif
 }
 
 ```
@@ -132,11 +132,11 @@ target_link_libraries(ex_math ${Caffe_LIBRARIES})
 그럼, 실수로 GPU에 데이터가 있는데도 `gpu_data()`를 여러번 호출하면 이 무거운 명령을 여러번 수행하게 될까요? blob은 똑똑하게도(당연하게도) GPU 데이터와 CPU 데이터의 갱신여부를 동기화해서 최신의 데이터를 사용하게 됩니다. 즉, GPU의 데이터가 최신이라면 `gpu_data()`를 호출해도, CPU에서 데이터를 가져오지 않고, 반대로 CPU 데이터가 최신이라면 복사를 수행하게 됩니다. 반대로 `cpu_data()`를 호출해도 마찬가지구요. 아래 코드로 한번 확인해 볼까요? 
 
 ```
-   cout<<endl;
-   tStart = clock();
-   blob->gpu_data();   // no data copy since both have up-to-date contents.
-   tEnd = clock();
-   COMPTIME("cpu->gpu time");
+cout<<endl;
+tStart = clock();
+blob->gpu_data();   // no data copy since both have up-to-date contents.
+tEnd = clock();
+COMPTIME("cpu->gpu time");
 ```
 
 자, 위에 이어서 첫 번째 호출된 `gpu_data()`는 아무 동작을 하지 않습니다. 즉 계산 시간을 확인해보면 1e-06초 의미 없죠. 
@@ -144,18 +144,18 @@ target_link_libraries(ex_math ${Caffe_LIBRARIES})
 그럼 이번에는 GPU위의 데이터에 변화를 주어 봅시다. 
 
 ```
-   // gpu data manipulation
-   const Dtype kDataScaleFactor = 2;
-   blob->scale_data(kDataScaleFactor); // change data on gpu
+// gpu data manipulation
+const Dtype kDataScaleFactor = 2;
+blob->scale_data(kDataScaleFactor); // change data on gpu
 ```
 
 `scale_data()`는 blob안에 각 데이터에다가 곱하기를 하는 것이겠죠? 그러면 현재 GPU상의 데이터는 두 배씩 커졌는데, CPU상의 데이터는 예전 그대로 입니다. 여기서 GPU데이터를 CPU로 복사해봅시다.
 
 ```
-   tStart = clock();
-   blob->cpu_data();   // memcopy device to host (to_cpu() in syncedmem.cpp)
-   tEnd = clock();
-   COMPTIME("gpu->cpu time");
+tStart = clock();
+blob->cpu_data();   // memcopy device to host (to_cpu() in syncedmem.cpp)
+tEnd = clock();
+COMPTIME("gpu->cpu time");
 ```
 
 `cpu_data()` 역시 현재 GPU 메모리 값이 CPU 메모리보다 최신이면 복사를 수행하고, 아니면 수행하지 않습니다. 여기서는 복사가 되었겠죠? 계산 시간을 살펴보면 0.001744초로 아까 CPU에서 GPU로 복사할 때 보다는 2.5배정도 빠르군요. (이유는 묻지 마세요. 그냥 사실 확인만 ㅎㅎ)
@@ -163,10 +163,10 @@ target_link_libraries(ex_math ${Caffe_LIBRARIES})
 그럼 마지막으로, 여기서 `sumsq_data()`를 호출하면 어디서 계산이 될까요? 현재 CPU로 데이터를 복사한 상태로 GPU값과 CPU값이 동일하니, 이 작업은 GPU에서 이루어집니다. 계산 시간을 확인해보면 알 수 있죠.
 
 ```
-   tStart = clock();
-   cout<<"sumsq of blob on gpu: "<<blob->sumsq_data()<<endl;   // this is done on gpu
-   tEnd = clock();
-   COMPTIME("sumsq on gpu time");
+tStart = clock();
+cout<<"sumsq of blob on gpu: "<<blob->sumsq_data()<<endl;   // this is done on gpu
+tEnd = clock();
+COMPTIME("sumsq on gpu time");
 ```
 
 결과는 0.000169초로 아까 CPU에서 계산한 시간 0.001164과 GPU에서 계산한 시간 0.000229 중에 후자와 비슷하다는 것을 확인할 수 있습니다. 
@@ -177,12 +177,12 @@ target_link_libraries(ex_math ${Caffe_LIBRARIES})
 `ex_math.cpp` 파일을 한번 열어보세요. 이번에는 blob을 생성한 후에 다른 방법으로 난수값을 할당해 보겠습니다.
 
 ```
-   Blob<Dtype>* blob_in = new Blob<Dtype>(20, 30, 40, 50);
-   Blob<Dtype>* blob_out = new Blob<Dtype>(20, 30, 40, 50);
-   int n = blob_in->count();
+Blob<Dtype>* blob_in = new Blob<Dtype>(20, 30, 40, 50);
+Blob<Dtype>* blob_out = new Blob<Dtype>(20, 30, 40, 50);
+int n = blob_in->count();
 
-   // random number generation
-   caffe_gpu_rng_uniform<Dtype>(n, -3, 3, blob_in->mutable_gpu_data());
+// random number generation
+caffe_gpu_rng_uniform<Dtype>(n, -3, 3, blob_in->mutable_gpu_data());
 ```
 
 여기서 `caffe_gpu_rng_uniform<type>()` 함수가 사용되었습니다. 그리고 특이한 점은 사용된 데이터의 주소값으로 `blob_in->mutable_gpu_data()`을 사용했는데요. CPU든 GPU든 blob의 데이터를 접근할 때, 데이터를 쓸 수 있게 하려면 앞에 `mutable`을 붙여야 합니다. 안붙이면 읽기전용이죠. 아마 Caffe에서 주소를 통한 데이터 직접 접근은 허용하되, 혹시 잘못 쓸까봐 보호 차원에서 쓰는 데이터는 더 귀찮게 해놓은것 같습니다. 
@@ -192,9 +192,9 @@ target_link_libraries(ex_math ${Caffe_LIBRARIES})
 여기서는 GPU 연산만 해보도록 하겠습니다. 첫 번째로 절대갑합을 구해보죠. 
 
 ```
-   Dtype asum;
-   caffe_gpu_asum<Dtype>(n, blob_in->gpu_data(), &asum);
-   cout<<"asum: "<<asum<<endl;
+Dtype asum;
+caffe_gpu_asum<Dtype>(n, blob_in->gpu_data(), &asum);
+cout<<"asum: "<<asum<<endl;
 ```
 
 결과는 1.79959e+06으로 뭐 의미가 있는 수 같네요. ㅎㅎ
@@ -202,10 +202,10 @@ target_link_libraries(ex_math ${Caffe_LIBRARIES})
 그리고 아래처럼 다른 함수들도 한번 테스트 해보세요.
 
 ```
-   caffe_gpu_sign<Dtype>(n, blob_in->gpu_data(), blob_out->mutable_gpu_data());
-   caffe_gpu_sgnbit<Dtype>(n, blob_in->gpu_data(), blob_out->mutable_gpu_data());
-   caffe_gpu_abs<Dtype>(n, blob_in->gpu_data(), blob_out->mutable_gpu_data());
-   caffe_gpu_scale<Dtype>(n, 10, blob_in->gpu_data(), blob_out->mutable_gpu_data());
+caffe_gpu_sign<Dtype>(n, blob_in->gpu_data(), blob_out->mutable_gpu_data());
+caffe_gpu_sgnbit<Dtype>(n, blob_in->gpu_data(), blob_out->mutable_gpu_data());
+caffe_gpu_abs<Dtype>(n, blob_in->gpu_data(), blob_out->mutable_gpu_data());
+caffe_gpu_scale<Dtype>(n, 10, blob_in->gpu_data(), blob_out->mutable_gpu_data());
 ```
 
 여기서는 `blob_in`은 읽기, `blob_out`은 쓰기 전용입니다. 
