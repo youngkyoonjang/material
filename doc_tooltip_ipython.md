@@ -1,5 +1,5 @@
 ---
-title: C++ Example 2. Blob
+title: iPython Notebook
 tags: [caffe]
 keywords: start, introduction, begin, install, build, hello world,
 last_updated: Nov 18, 2015
