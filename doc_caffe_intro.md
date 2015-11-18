@@ -40,7 +40,7 @@ caffe는 네트워크 모델의 학습, 테스트, 튜닝, 배포를 위한 완�
 * **Pre-trained reference models**: 비젼인식에 관한 참고모델(AlexNet ImageNet, R-CNN detection model) 제공 (BSD license 아님)
 
 ### Comparison to related software
-![caffe_comparison](https://github.com/DeepLearningStudy/caffe/blob/master/docs/wiki/caffe_comparison.png)
+![caffe_comparison](https://raw.githubusercontent.com/DeepLearningStudy/caffe/master/docs/wiki/caffe_comparison.png)
 
 ### Architecture
 * Data storage
@@ -61,7 +61,7 @@ caffe는 네트워크 모델의 학습, 테스트, 튜닝, 배포를 위한 완�
 
 * Training a network  
   * caffe는 빠르고 표준인 stochastic gradient descent algorithm 으로 모델을 훈련한다. 아래 그림은 MNIST digit classification 을 위한 네트워크 모델의 한 예이다. _(투토리얼에서 예제로 다룰 예정입니다.)_
-![caffe network model for mnist digit classification](https://github.com/DeepLearningStudy/caffe/blob/master/docs/wiki/caffe_network_mnist.png)
+![caffe network model for mnist digit classification](https://raw.githubusercontent.com/DeepLearningStudy/caffe/master/docs/wiki/caffe_network_mnist.png)
   * 데이터 레이어는 각 이미지와 라벨을 읽어오고, 영상 데이터는 convolution, pooling, rectified linear transforms 등의 멀티 레이어를 거쳐서 라벨과 비교하여 오류값을 생성하는 loss layer에 도달한다. 그리고 그 오차의 구배(gradient)를 통해 전체 네트워크를 훈련하게 된다.
   * 네트워크 훈련을 위한 파라미터는 learning rate decay schedules, momentum, stopping 및 resuming을 위한 snapshots 등이 있으며, 모두 구현되어 있고 문서화 되어 있다. 
   * Finetuning 은 기존 훈련된 모델을 새로운 아키텍쳐나 데이터에 적용하는데 사용된다. 기존 네트워크의 snapshot 과 새로운 네트워크 정의로부터 새로운 테스크에 대한 모델 파라미터들(weights)을 튜닝한다. 이 기능은 knowledge transfer, object detection, object retrieval 등에 활용된다. 
