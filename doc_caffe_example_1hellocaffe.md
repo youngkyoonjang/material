@@ -18,13 +18,13 @@ By [koosy](https://www.facebook.com/Koosyong) on 2015.05.27
 * 작업하고 싶은 위치에서 caffestudy 프로젝트 파일을 복사해 옵니다. 
 
 ```      
-   git clone https://github.com/DeepLearningStudy/caffe.git
+git clone https://github.com/DeepLearningStudy/caffe.git
 ```
 
 * caffestudy 폴더가 잘 복사되었나 확인합니다. 
 
 ```      
-   cd caffestudy
+cd caffestudy
 ```
 
 ### 2. CMakeLists.txt 파일 
