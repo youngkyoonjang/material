@@ -3,10 +3,10 @@ title: C++ Example 1. Hello Caffe
 tags: [caffe]
 keywords: start, introduction, begin, install, build, hello world,
 last_updated: August 12, 2015
+abstract: "이 예제는 [caffe 설치](http://deeplearningstudy.github.io/material/doc_caffe_install_ubuntu1404.html) 후 처음으로 caffe 라이브러리를 사용하는 법을 익히는 hello caffe 예제입니다. 우분투를 기본 플렛폼으로 하여 설명합니다. 윈도우즈 및 맥 이용자께는 죄송하지만 소스 파일은 동일하므로 큰 어려움은 없으실걸로 기대합니다."
 ---
 By [koosy](https://www.facebook.com/Koosyong) on 2015.05.27
 
-이 예제는 [caffe 설치](install) 후 처음으로 caffe 라이브러리를 사용하는 법을 익히는 hello caffe 예제입니다. 우분투를 기본 플렛폼으로 하여 설명합니다. 윈도우즈 및 맥 이용자께는 죄송하지만 소스 파일은 동일하므로 큰 어려움은 없으실걸로 기대합니다. 
 
 ***
 
