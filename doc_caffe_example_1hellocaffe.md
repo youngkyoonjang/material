@@ -17,7 +17,7 @@ By [koosy](https://www.facebook.com/Koosyong) on 2015.05.27
 * 작업하고 싶은 위치에서 caffestudy 프로젝트 파일을 복사해 옵니다. 
 
 ```      
-   git clone https://github.com/koosyong/caffestudy.git
+   git clone https://github.com/DeepLearningStudy/caffe.git
 ```
 
 * caffestudy 폴더가 잘 복사되었나 확인합니다. 
@@ -27,11 +27,11 @@ By [koosy](https://www.facebook.com/Koosyong) on 2015.05.27
 ```
 
 ### 2. CMakeLists.txt 파일 
-본 예제에서는 (그리고 앞으로도) CMake를 이용해서 프로젝트를 구축할것 입니다. [CMake](http://www.cmake.org/)에 대한 설명은 생략하도록 하겠습니다. 잘 모르셔도 예제가 어렵지 않으니 따라오면서 익히시면 됩니다. 우선 hellocaffe 프로젝트를 정의한 [CMakeLists.txt](https://github.com/koosyong/caffestudy/blob/master/examples/ex1_hellocaffe/CMakeLists.txt) 파일을 열어보겠습니다. 
+본 예제에서는 (그리고 앞으로도) CMake를 이용해서 프로젝트를 구축할것 입니다. [CMake](http://www.cmake.org/)에 대한 설명은 생략하도록 하겠습니다. 잘 모르셔도 예제가 어렵지 않으니 따라오면서 익히시면 됩니다. 우선 hellocaffe 프로젝트를 정의한 [CMakeLists.txt](https://github.com/DeepLearningStudy/caffe/blob/master/examples/ex1_hellocaffe/CMakeLists.txt) 파일을 열어보겠습니다. 
 
 ```      
-   cd examples/ex1_hellocaffe
-   gedit CMakeLists.txt
+cd examples/ex1_hellocaffe
+gedit CMakeLists.txt
 ```
 
 첫 예제인만큼 한 줄 한 줄 같이 살펴보겠습니다. 다음 예제부터는 새롭게 추가된 부분만 살펴보도록 하겠습니다. 
@@ -39,43 +39,43 @@ By [koosy](https://www.facebook.com/Koosyong) on 2015.05.27
 * 본 프로젝트를 컴파일 하기 위한 cmake 최소버전을 명시 합니다.  
 
 ```
-   cmake_minimum_required(VERSION 2.8.8)
+cmake_minimum_required(VERSION 2.8.8)
 ```
 
 * 프로젝트 이름을 hellocaffe로 정합니다. 
 
 ```
-   project (hellocaffe)
+project (hellocaffe)
 ```
 
 * caffe를 설치할 때 자동으로 설정되는 라이브러리 및 헤더파일 페키지를 찾습니다. 
 
 ```
-   find_package(Caffe)
+find_package(Caffe)
 ```
 
 * 본 프로젝트에 caffe 헤더파일이 있는 경로를 삽입합니다. 설치한 플렛폼 별로 caffe 디렉토리 경로는 Caffe package 안에 정의된 Caffe_INCLUDE_DIRS 변수에 저장되어 있습니다. 
 
 ```
-   include_directories(${Caffe_INCLUDE_DIRS})
+include_directories(${Caffe_INCLUDE_DIRS})
 ```
 
 * 그 외 컴파일에 필요한 사전정의 값들을 읽어옵니다.
 
 ```
-   add_definitions(${Caffe_DEFINITIONS})
+add_definitions(${Caffe_DEFINITIONS})
 ```
 
 * 실행파일을 만들 때 필요한 정보를 알려줍니다. 여기서 실행파일 이름은 hellocaffe로 하였고, 실행파일을 생성하기 위한 소스 파일로는 main.cpp 파일이 있습니다.
 
 ```
-   add_executable(hellocaffe main.cpp)
+add_executable(hellocaffe main.cpp)
 ```
 
 * 프로젝트를 컴파일하고 빌드하기 위한 라이브러리들을 알려줍니다. 이 역시 Caffe package 안에 사전정의된 Caffe_LIBRARIES 변수를 추가하면 됩니다.
 
 ```
-   target_link_libraries(hellocaffe ${Caffe_LIBRARIES})
+target_link_libraries(hellocaffe ${Caffe_LIBRARIES})
 ```
 
 ***
@@ -88,7 +88,7 @@ By [koosy](https://www.facebook.com/Koosyong) on 2015.05.27
     본 예제에서는 프로젝트 폴더 caffestudy/examples/ex1_hellocaffe 안에 생성한다고 가정합니다. (혹시 나중에 Git으로 소스를 올려주실 분은 build 폴더는 삭제하고 올려주시기 바랍니다.)
 
 ```
-   mkdir build & cd build
+mkdir build & cd build
 ```
 
 * cmake 합니다. 
@@ -98,7 +98,7 @@ By [koosy](https://www.facebook.com/Koosyong) on 2015.05.27
  CMakeLists.txt 소스가 다른 곳에 있는 경우는 cmake 다음에 경로를 적어줍니다. 
 
 ```
-   cmake ..
+cmake ..
 ```
 
 * make 합니다. 
@@ -106,28 +106,28 @@ By [koosy](https://www.facebook.com/Koosyong) on 2015.05.27
    현재 폴더에 make 파일이 생성되어 있으므로, 경로 지정없이 make 하시면 컴파일 및 실행파일이 생성됩니다.
 
 ```
-   make
+make
 ```
 
    다음 문구를 찾으시면 첫 번째 caffe를 이용한 프로그램이 문제없이 생성이 되었습니다. 
 
 ```
-   ...
-   [100%] Built target hellocaffe
+...
+[100%] Built target hellocaffe
 ```
 
 * hellocaffe를 실행합니다. 
 
 ```
-   ./hellocaffe
+./hellocaffe
 ```
    
    다음과 같은 실행결과를 보실 수 있습니다. (아래 1.80006e+06 숫자는 바뀔 수 있습니다.)
 
 ```
-   Size of blob: N=20 K=30 H=40 W=50 C=1200000
-   expected asum of blob: 1.80006e+06
-   asum of blob on cpu: 1.80006e+06
+Size of blob: N=20 K=30 H=40 W=50 C=1200000
+expected asum of blob: 1.80006e+06
+asum of blob on cpu: 1.80006e+06
 ```
    이 결과가 무엇인지 궁금하시죠? 아래 소스 파일을 같이 살펴봅시다. 
 
@@ -148,36 +148,36 @@ eclipse, codeblocks, vim 등 각자 선호하는 코딩 툴이 있을텐데요. 
 * ex1_hellocaffe 폴더로 이동하신 후에 아래처럼 프로젝트를 엽니다.
 
 ```
-   qtcreator CMakeLists.txt
+qtcreator CMakeLists.txt
 ```
 
 아래와 같은 화면에서 빌드 파일을 생성할 폴더를 선택합니다. 위에서 생성한 ex1_hellocaffe/build 폴더를 선택하셔도 되고 따로 만드셔도 됩니다.
 
-![project configuration](https://github.com/koosyong/caffestudy/blob/master/docs/wiki/ex1_hellocaffe/project.png)
+![project configuration](https://raw.githubusercontent.com/DeepLearningStudy/caffe/master/docs/wiki/ex1_hellocaffe/project.png)
 폴더 선택 후에 configure project 버튼을 누르면, 아래 그림처럼 hellocaffe 이름으로 프로젝트가 열리고, CMakeLists.txt 파일 및 main.cpp 파일을 확인 또는 편집할 수 있습니다.
 
-![project configuration](https://github.com/koosyong/caffestudy/blob/master/docs/wiki/ex1_hellocaffe/main.png)
+![project configuration](https://raw.githubusercontent.com/DeepLearningStudy/caffe/master/docs/wiki/ex1_hellocaffe/main.png)
 > QtCreator Tip: Compile & Build는 Ctrl+B, 생성된 프로그램 실행은 Ctrl+R 입니다. 
 
 ### 2. main.cpp 파일
 그럼 이제 `hellocaffe` 예제에 사용된 
 
-[`main.cpp`](https://github.com/koosyong/caffestudy/blob/master/examples/ex1_hellocaffe/main.cpp) 소스코드를 차례로 살펴보도록 하겠습니다. 
+[`main.cpp`](https://github.com/DeepLearningStudy/caffe/blob/master/examples/ex1_hellocaffe/main.cpp) 소스코드를 차례로 살펴보도록 하겠습니다. 
 
 * 헤더파일 및 선언부
 
 ```
-   #include <stdio.h>
+#include <stdio.h>
 
-   #include "caffe/caffe.hpp"
-   #include "caffe/util/io.hpp"
-   #include "caffe/blob.hpp"
-   #include "caffe/common.hpp"
-   #include "caffe/filler.hpp"
+#include "caffe/caffe.hpp"
+#include "caffe/util/io.hpp"
+#include "caffe/blob.hpp"
+#include "caffe/common.hpp"
+#include "caffe/filler.hpp"
 
-   using namespace caffe;
-   using namespace std;
-   typedef double Dtype;
+using namespace caffe;
+using namespace std;
+typedef double Dtype;
 ```
 
 앞에서 `CMakeLists.txt` 파일에 헤더파일 경로를 추가했기 때문에, caffe관련 헤더파일은 `caffe/` 로 시작하면 됩니다. 그 외 `caffe`, `std` 라이브러리를 위한 `namespace`를 지정하고, 데이터 타입 (`Dtype`) 으로는 `double` 을 사용합니다. caffe 라이브러리는 템플릿으로 구성되어 있어서 이와 같이 임의의 데이터 형태를 선언하고 사용할 수 있습니다.
@@ -185,17 +185,16 @@ eclipse, codeblocks, vim 등 각자 선호하는 코딩 툴이 있을텐데요. 
 * blob 생성
 
 ```
-    Blob<Dtype>* const blob = new Blob<Dtype>(20, 30, 40, 50);
-    if(blob){
-        cout<<"Size of blob:";
-        cout<<" N="<<blob->num();
-        cout<<" K="<<blob->channels();
-        cout<<" H="<<blob->height();
-        cout<<" W="<<blob->width();
-        cout<<" C="<<blob->count();
-        cout<<endl;
-    }
-
+Blob<Dtype>* const blob = new Blob<Dtype>(20, 30, 40, 50);
+   if(blob){
+      cout<<"Size of blob:";
+      cout<<" N="<<blob->num();
+      cout<<" K="<<blob->channels();
+      cout<<" H="<<blob->height();
+      cout<<" W="<<blob->width();
+      cout<<" C="<<blob->count();
+      cout<<endl;
+   }
 ```
 [blob](http://caffe.berkeleyvision.org/tutorial/net_layer_blob.html)은 caffe의 기초를 이루는 데이터구조 입니다. 다음 예제에서 자세히 설명하겠지만, 여기서는 간단히 어떻게 생성하는지만 알아보겠습니다. 
 
@@ -206,17 +205,17 @@ blob은 number N x channel K x height H x width W 로 구성된 4차원 배열�
 생성된 blob의 각 차원 영역의 크기는 `num()`,`channels()`, `height()`, `width()`으로 얻을 수 있으며, 볼륨(N x K x H x W)은 `count()`으로 받습니다.
 
 ```
-   Size of blob: N=20 K=30 H=40 W=50 C=1200000
+Size of blob: N=20 K=30 H=40 W=50 C=1200000
 ```
 
 * filler를 이용한 blob 데이터 초기화
 
 ```
-    FillerParameter filler_param;
-    filler_param.set_min(-3);
-    filler_param.set_max(3);
-    UniformFiller<Dtype> filler(filler_param);
-    filler.Fill(blob);
+FillerParameter filler_param;
+filler_param.set_min(-3);
+filler_param.set_max(3);
+UniformFiller<Dtype> filler(filler_param);
+filler.Fill(blob);
 ```
 
 filler 역시 다음 예제에서 더 자세히 설명할텐데요, 여기서는 생성된 blob에 임의의 초기값을 할당하는데 사용하였습니다. `UniformFiller`는 주어진 영역 (-3~3) 안에서 균일하게 임의의 값을 생성(균일분포에서 각 값을 샘플링)하여 blob을 모든 요소값을 채웁니다. 
@@ -224,20 +223,20 @@ filler 역시 다음 예제에서 더 자세히 설명할텐데요, 여기서는
 * blob 절대값 합 계산
 
 ```
-    Dtype expected_asum = 0;
-    const Dtype* data = blob->cpu_data();
-    for (int i = 0; i < blob->count(); ++i) {
-        expected_asum += fabs(data[i]);
-    }    
-    cout<<"expected asum of blob: "<<expected_asum<<endl;
-    cout<<"asum of blob on cpu: "<<blob->asum_data()<<endl;
+Dtype expected_asum = 0;
+const Dtype* data = blob->cpu_data();
+for (int i = 0; i < blob->count(); ++i) {
+   expected_asum += fabs(data[i]);
+}    
+cout<<"expected asum of blob: "<<expected_asum<<endl;
+cout<<"asum of blob on cpu: "<<blob->asum_data()<<endl;
 ```
 
 blob은 cpu 또는 gpu 상에서 여러가지 연산을 할 수 있는 기능을 제공합니다. 위의 예제는 blob의 데이터를 불러와서 (`blob->cpu_data();`) 각 요소의 절대값을 모두 합한 `expected_asum` 값과, blob에서 제공하는 절대값의 합을 구하는 기능 (`blob->asum_data()`)을 이용한 결과가 같다는 것을 보입니다. 
 
 ```
-   expected asum of blob: 1.80006e+06
-   asum of blob on cpu: 1.80006e+06
+expected asum of blob: 1.80006e+06
+asum of blob on cpu: 1.80006e+06
 ```
 
 위의 예제에서, `blob->cpu_data();`에서 굳이 왜 cpu를 명시하는지, 그럼 gpu 위에서는 어떻게 계산을 하는지, cpu와 gpu의 계산 속도 차이는 얼마나 되는지 등이 궁금하시죠? 그건 다음 예제에서 blob의 다른 기능들과 함께 설명하도록 하겠습니다. 
