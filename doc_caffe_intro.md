@@ -32,6 +32,7 @@ caffe는 Berkeley Vision and Learning Center (BVLC)에 의해 개발되었고 Gi
 
 ### Highlights of caffe
 caffe는 네트워크 모델의 학습, 테스트, 튜닝, 배포를 위한 완성된 툴킷을 지원한다. 연구자들 및 개발자들이 최신 머신러닝의 세계로 뛰어들기에 이상적인 시작점이다. 동시에 산업현장에서 즉시 쓰일 수 있도록 현존하는 가장 빠른 성능을 가진 알고리즘들이 구현되어 있다.
+
 * **Modularity**: 새로운 데이터 포멧, 네트워크 레이어, loss function 등에 쉽게 확장 가능하도록 모듈화되어 개발됨.
 * **Separation of representation and implementation**: 네트워크 모델은 Protocol Buffer 언어를 이용한 config files 로 정의됨. directed acyclic graph 형태의 임의의 네트워크 정의 가능 _(Recurrent는 안되네요. 참고하시길..)_ CPU 또는 GPU 구현은 function 하나만 부름으로써 변환 가능.  
 * **Test coverage**: 각 개별 모듈은 각 test code를 가지고 있음. _(처음 make 할 때 test code 동작을 확인할 수 있습니다. 또한 각 모듈화된 test code를 공부함으로써 caffe의 각 모듈 기능 사용법을 배울 수 있습니다.)_
