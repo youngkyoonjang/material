@@ -5,6 +5,7 @@ keywords: start, introduction, begin, install, build, hello world,
 last_updated: August 12, 2015
 summary: "세 번째 예제는 MNIST 데이터셋을 읽어오도록 하겠습니다"
 ---
+By [koosy](https://www.facebook.com/Koosyong) on 2015.12.01
 
 ## MNIST 데이터셋 및 LMDB 준비
 
