@@ -136,10 +136,7 @@ label: 5
 
     x.shape
 
-
-
-
-    (28, 28)
+(28, 28)
 
 
 
@@ -151,14 +148,6 @@ label: 5
     plt.rcParams['image.cmap'] = 'gray'
     plt.imshow(x)
 
-
-
-
-    <matplotlib.image.AxesImage at 0x7fb8e8978f10>
-
-
-
-
 ![png](https://raw.githubusercontent.com/DeepLearningStudy/caffe/master/examples/ex3_mnist/caffe_ex3_mnist_files/caffe_ex3_mnist_35_1.png)
 
 
@@ -167,10 +156,7 @@ label: 5
 
     datum_train_start.label
 
-
-
-
-    5
+5
 
 
 
