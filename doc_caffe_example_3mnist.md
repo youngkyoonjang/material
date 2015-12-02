@@ -46,5 +46,14 @@ sh examples/mnist/create_mnist.sh
 ## Python code
 
 
-    
+    %matplotlib inline
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import lmdb
+    caffe_root = '/home/koosy/caffe/caffe/'
+    import sys
+    sys.path.insert(0, caffe_root + 'python')
+    import caffe
+
+
     
