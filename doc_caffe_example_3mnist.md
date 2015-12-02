@@ -159,7 +159,7 @@ label: 5
 
 
 
-![png](caffe_ex3_mnist_files/caffe_ex3_mnist_35_1.png)
+![png](https://raw.githubusercontent.com/DeepLearningStudy/caffe/master/examples/ex3_mnist/caffe_ex3_mnist_files/caffe_ex3_mnist_35_1.png)
 
 
 `datum_train_start`에 저장된 라벨값도 같은지 확인해 봅시다.
