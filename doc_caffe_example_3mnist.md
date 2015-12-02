@@ -1,5 +1,5 @@
 ---
-title: C++ Example 3. MNIST dataset (python)
+title: C++ Example 3. MNIST dataset (with python)
 tags: [caffe]
 keywords: start, introduction, begin, install, build, hello world,
 last_updated: August 12, 2015
