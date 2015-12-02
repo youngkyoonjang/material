@@ -101,5 +101,86 @@ LMDB 데이터 셋 열기
 to](https://github.com/BVLC/caffe/blob/master/src/caffe/proto/caffe.proto)를
 살펴보세요. Datum 외에도 카페에서 사용하는 다른 변수 타입의 정의를 한 눈에 보실 수 있습니다.
 
+그럼 이번에는 Datum을 이용하여 데이터를 저장해 보도록 하겠습니다. `ParseFromString` 이라는 함수로 LMDB의 문자열 데이터를
+해석하고 Datum에 저장합니다.
 
+
+    datum_train_start = caffe.proto.caffe_pb2.Datum()
+    datum_train_start.ParseFromString(start_train)
+
+먼저 `datum_train_start` 안에 구조가 어떻게 되어 있는지 한번 살펴볼까요? ipython에서는
+`datum_train_start?` 라고 치면 데이터 안의 값 및 설명을 볼 수가 있습니다.
+
+
+    datum_train_start?
+
+channels: 1
+height: 28
+width: 28
+data: "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\ <...> 00\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000"
+label: 5
+
+보시다시피 하나의 Datum은  channels, height, width, data, label 으로 이루어져 있습니다. 즉 앞의 예제에서
+살펴본 blob의 구조 중에서 첫번째 차원인 numbers 를 제외한 3차원 구조 + label 데이터를 담을 수 있는데요, 실제 데이터는
+1차원 스트링으로 되어있고, 차원 정보만 있음을 알 수 있습니다.
+
+이번에는 Datum에 명시된데로(1 x 28 x 28) 데이터를 다차원 배열로 복구해 보겠습니다. numpy를 이용하여 unsigned int
+타입으로 변환하고, `reshape()` 명령을 사용해서 차원 변환을 합니다.
+
+
+    flat_x = np.fromstring(datum_train_start.data, dtype=np.uint8)
+    x = flat_x.reshape(datum_train_start.height, datum_train_start.width)
+
+`x`가 2차원 배열로 잘 변환이 되었나 확인해 봅시다.
+
+
+    x.shape
+
+
+
+
+    (28, 28)
+
+
+
+이번에는 matplotlib.pyplot의 `imshow` 명령을 사용해서 이차원 이미지 데이터를 시각화해 봅시다. 트레이닝 데이터셋의 첫 번째
+이미지는 아래 보는것과 같이 숫자 5이군요.
+
+
+    plt.rcParams['image.interpolation'] = 'none'
+    plt.rcParams['image.cmap'] = 'gray'
+    plt.imshow(x)
+
+
+
+
+    <matplotlib.image.AxesImage at 0x7fb8e8978f10>
+
+
+
+
+![png](caffe_ex3_mnist_files/caffe_ex3_mnist_35_1.png)
+
+
+`datum_train_start`에 저장된 라벨값도 같은지 확인해 봅시다.
+
+
+    datum_train_start.label
+
+
+
+
+    5
+
+
+
+## 맺음말
+
+이번 강좌에서는 LMDB로 변환한 MNIST 데이터셋을 파이썬으로 읽어오고, 카페 파이썬 라이브러리를 이용하여 각 데이터와 라벨을 읽고 시각화
+해서 확인해 보았습니다. Datum 이라는 카페에서 사용하는 데이터구조가 데이터를 데이터베이스에 저장하거나 읽어오는 인터페이스 역할을 하는것도
+알아보았습니다. 다음번에는 C++ 코드에서 각 Datum을 어떻게 Blob으로 만드는지, 그리고 이렇게 읽은 MNIST 데이터를 실제로 활용하여
+머신러닝 알고리즘들을 구현해 보도록 하겠습니다.
+
+
+    
     
