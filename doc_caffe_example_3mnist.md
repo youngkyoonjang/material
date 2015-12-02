@@ -18,10 +18,11 @@ summary: "세 번째 예제는 MNIST 데이터셋을 읽어오도록 하겠습�
 ### MNIST 데이터셋 다운로드
 
 카페 소스에는 여러가지 유용한 툴들을 제공학 있는데요. 그 중의 하나가 데이터셋을 다운로드 받아서 LMDB로 변환하는 작업입니다. 먼저 아래와
-같이 카페의 홈폴더($caffe_home) 아래에 있는 mnist 폴더로 이동해서 `get_mnist` 합니다.
+같이 카페의 홈폴더(여기서는 `your_caffe_home` 이라 하겠습니다.) 아래에 있는 mnist 폴더로 이동해서 `get_mnist`
+합니다.
 
 ```
-cd $caffe_home/data/mnist
+cd your_caffe_home/data/mnist
 ./get_mnist.sh
 ```
 
@@ -35,7 +36,7 @@ train-labels-idx1-ubyte) 이 다운로드 된것을 확인할 수 있습니다.
 보죠.
 
 ```
-cd $caffe_home
+cd your_caffe_home
 sh examples/mnist/create_mnist.sh
 ```
 
@@ -45,15 +46,60 @@ sh examples/mnist/create_mnist.sh
 
 ## Python code
 
+이번에는 파이썬을 이용하여 LMDB로 변환된 MNIST 데이터셋을 읽어오고 시각화하여 데이터를 직접 살펴보도록 하겠습니다. 이 강의는 C++을 기반으로 되어 있지만, 간간히 파이썬을 유용하게 사용하려고 합니다. 처음 접하시는 분은 유용한 툴이 많으니 이번 기회에 파이썬을 한번 접해보세요. 
 
-    %matplotlib inline
+### LMDB 라이브러리 설치 
+
+먼저 lmdb를 설치합니다. 자세한 설치법은 [공식사이트](https://lmdb.readthedocs.org/en/release/)를
+참조하시고, 여기서는 우분투를 기반으로 코드 몇 줄만 적습니다. Python Package 관리 프로그램
+[pip](https://pypi.python.org/pypi/pip)이 없으신 분들은 먼저 설치하시기 바랍니다.
+
+```
+apt-get install libffi-dev python-dev build-essential
+pip install lmdb
+```
+
+### Python code
+
+이제부터 본격적인 파이썬 코딩을 합니다. 선호하시는 파이썬 에디터를 열어서 아래 코드들을 차례로 실행해보세요. 저는 개인적으로 [ipython
+notebook](http://ipython.org/notebook.html)을 선호합니다. 이 강좌도 IP notebook을 이용하여
+작성하였습니다.
+
+LMDB 및 카페 파이썬 라이브러리 import
+
+
+    # for ipython notebook
+    %matplotlib inline  
+    your_caffe_home = '/home/koosy/caffe/caffe'   # example
+    
     import numpy as np
     import matplotlib.pyplot as plt
     import lmdb
-    caffe_root = '/home/koosy/caffe/caffe/'
     import sys
-    sys.path.insert(0, caffe_root + 'python')
+    sys.path.insert(0, your_caffe_home + 'python')
     import caffe
+
+LMDB 데이터 셋 열기
+
+
+    lmdb_train = lmdb.open(your_caffe_home + '/examples/mnist/mnist_train_lmdb', readonly=True)
+    lmdb_test = lmdb.open(your_caffe_home + '/examples/mnist/mnist_test_lmdb', readonly=True)
+
+이제, `lmdb_train`과 `lmdb_test`안에 데이터셋이 들어와 있습니다. 트레이닝 데이터에는 60,000장의 이미지와 라벨이,
+테스트 데이터에는 10,000장의 이미지와 라벨이 들어 있을텐데요. 예제로 각 데이터셋의 첫번째 그리고 마지막 데이터를 접근해서 읽어보도록
+하겠습니다. 접근을 위해 8바이트의 인덱스 키를 사용합니다.
+
+
+    start_train = lmdb_train.begin().get('00000000')
+    end_train = lmdb_train.begin().get('00059999')
+    start_test = lmdb_test.begin().get('00000000')
+    end_test = lmdb_test.begin().get('00009999')
+
+이제 `start_train` 부터 `end_test` 까지는 이미지 및 라벨 정보가 들어가 있는데요. 데이터들이 LMDB에 저장될 때 사용된
+규칙에 따라 일렬화된 문자열로 저장이 되어 있습니다. 각 문자열만 봐서는 무슨 정보가 들어있는지 알 수 없겠죠? 카페에서는 Datum 이라는
+데이터 구조를 가지고 MNIST 데이터를 읽어서 LMDB에 저장했는데요, 카페에서 정의한 데이터 구조를 자세히 알고 싶으시면 [caffe.pro
+to](https://github.com/BVLC/caffe/blob/master/src/caffe/proto/caffe.proto)를
+살펴보세요. Datum 외에도 카페에서 사용하는 다른 변수 타입의 정의를 한 눈에 보실 수 있습니다.
 
 
     
