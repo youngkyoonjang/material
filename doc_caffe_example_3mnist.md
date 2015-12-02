@@ -67,11 +67,6 @@ notebook](http://ipython.org/notebook.html)을 선호합니다. 이 강좌도 IP
 
 LMDB 및 카페 파이썬 라이브러리 import
 
-
-    # for ipython notebook
-    %matplotlib inline  
-    your_caffe_home = '/home/koosy/caffe/caffe'   # example
-    
     import numpy as np
     import matplotlib.pyplot as plt
     import lmdb
