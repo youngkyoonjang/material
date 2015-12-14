@@ -16,7 +16,7 @@ By [koosy](https://www.facebook.com/Koosyong) on 2015.12.15
 caffe 모델에서 blob이 데이터 구조라면 layer는 연산자에 해당합니다. 아래 보시는 그림처럼 blob을 입력으로 받아서 다양한 연산을
 수행하고 그 결과를 blob으로 저장해서 내보냅니다.
 
-![그림](http://caffe.berkeleyvision.org/tutorial/fig/layer.jpg)
+![그림](http://caffe.berkeleyvision.org/tutorial/fig/layer.jpg =250x)
 
 caffe는 다양한 종류의 layer를 지원하는데요, 예를 들어 convolution filter, pooling layer, inner
 product layer, rectified-linear layer, sigmoid layer,
