@@ -50,3 +50,8 @@ Caffe에 대한 간략한 튜토리얼 및 GoogLeNet 개괄 등등, Deep learnin
 CVPR 2015에서 열렸던 워크샵 사이트 입니다.
 
   * [사이트 링크](http://www.deep-vision.net)
+
+### Stanford University CS231n: Convolutional Neural Networks for Visual Recognition
+ImageNet의 창시자 Fei-Fei Li 교수의 스텐포드 대학 강의자료 입니다. 
+
+  * [사이트 링크](http://cs231n.stanford.edu/index.html)
