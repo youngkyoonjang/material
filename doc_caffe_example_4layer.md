@@ -1,3 +1,11 @@
+---
+title: C++ Example 4. Layer
+tags: [caffe]
+keywords: start, introduction, begin, install, build, hello world,
+last_updated: August 12, 2015
+summary: "네 번째 예제에서는 Layer 구조와 기능에 대해 알아봅니다."
+---
+By [koosy](https://www.facebook.com/Koosyong) on 2015.12.15
 
 ## 'layer' in Caffe
 
