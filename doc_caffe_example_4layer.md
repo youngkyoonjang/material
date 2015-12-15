@@ -123,8 +123,6 @@ layer`를 정의하고 `SetUp()`과 `Forward()` 기능만 다루도록 하겠습
 ples/ex4_layer/main.cpp)을 열어봅니다. 이 예제에서는 임의로 20차원의 값을 가지는 10개의 데이터(10x20x1x1)를
 bottom blob에 생성하고, 각 데이터 별로 가장 큰 값을 가지는 차원의 수를 찾는 argmax 문제입니다.
 
-$label_i = \underset{j} {\mathrm{argmax}} ~{x_{ij}}$
-
 첫 번째로, 비어있는 top blob과 `GaussianFiller`를 이용하여 bottom blob을 생성합니다.
 
 ```
@@ -251,7 +249,7 @@ max_ind:13
 ## 맺음말
 
 이번 시간에는 caffe의 layer에 대한 기본적인 설명 및 간단한 예를 통해 그 사용법을 알아보았습니다. 또한 caffe의 proto파일을
-통해서 각 layer또는 fillerㄹ지금까지 알아본 blob, layer를 통해 더 복잡한 네트워크 모델을 만들 준비가 되었는데요.
+통해서 각 layer또는 filler를 설정하기 위한 파라미터들이 어떻게 정의가 되는지도 찾아볼 수 있었습니다. 지금까지 알아본 blob, layer를 통해 더 복잡한 네트워크 모델을 만들 준비가 되었는데요.
 다음시간에는 두 층의 layer를 통해서 Logistic Regression Classification을 구현해보고, 이를 MNIST
 dataset에 적용해서 훈련해보도록 하겠습니다.
 
