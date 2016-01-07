@@ -123,8 +123,6 @@ layer`를 정의하고 `SetUp()`과 `Forward()` 기능만 다루도록 하겠습
 ples/ex4_layer/main.cpp)을 열어봅니다. 이 예제에서는 임의로 20차원의 값을 가지는 10개의 데이터(10x20x1x1)를
 bottom blob에 생성하고, 각 데이터 별로 가장 큰 값을 가지는 차원의 수를 찾는 argmax 문제입니다.
 
-$w$
-
 <img src="http://mathurl.com/jlfnenz.png">
 
 첫 번째로, 비어있는 top blob과 `GaussianFiller`를 이용하여 bottom blob을 생성합니다.
