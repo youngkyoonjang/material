@@ -15,15 +15,11 @@ By [koosy](https://www.facebook.com/Koosyong) on 2016.1.7
 learning)을 Caffe를 이용하여 구현해 보겠습니다.
 
 supervised learning, unsupervised learning, classification, regression 등 머신러닝에
-대한 기본적인 용어 설명은 생략합니다. 딥러닝을 위한 머신러닝 기초는 Bengio 그룹의 [Deeplearning
-Book](http://www.deeplearningbook.org/)를 추천합니다.
+대한 기본적인 용어 설명은 생략합니다. 딥러닝을 위한 머신러닝 기초는 Bengio 그룹의 [Deeplearning Book](http://www.deeplearningbook.org/)를 추천합니다.
 
 ### Online Linear Regression
 
-이번에 구현할 모델은 Logistic Regression Classifier 인데요, 먼저 기본이 되는 선형회기(linear
-regression)에 대해 간단히 알아보기로 하겠습니다. D차원의 N개의 데이터를 가지는 입력 메트릭스 <img
-src="http://mathurl.com/zj4tfxg.png"> 와 각 데이터에 따른 하나의 실수값을 가지는 출력 벡터 <img
-src="http://mathurl.com/gphjxm2.png">가 있을 때, 선형회기는 입력과 출력 사이의 선형변환 관계를 나타내는 D차원의
+이번에 구현할 모델은 Logistic Regression Classifier 인데요, 먼저 기본이 되는 선형회기(linear regression)에 대해 간단히 알아보기로 하겠습니다. D차원의 N개의 데이터를 가지는 입력 메트릭스 <img src="http://mathurl.com/zj4tfxg.png"> 와 각 데이터에 따른 하나의 실수값을 가지는 출력 벡터 <img src="http://mathurl.com/gphjxm2.png">가 있을 때, 선형회기는 입력과 출력 사이의 선형변환 관계를 나타내는 D차원의
 변수값 <img src="http://mathurl.com/hcwe8jv.png"> 를 구하는 것입니다.
 
 이 문제는 다음과 같은 loss function을 최소화 하는 w를 구하는 문제로, 최소자승법을 사용하여 간단히 구할 수 있습니다.
@@ -41,16 +37,13 @@ gradient descent 방법은 간단하게 다음과 같이 설명할 수 있습니
 
 <img src="http://mathurl.com/zu2qcve.png">
 
-그 이후에, 각 w 값을 다음 업데이트 룰에 따라 갱신합니다. 여기서 <img
-src="http://mathurl.com/hur47e2.png"> 값은 learning rate이라고 하며 1보다 작은 값을 취합니다.
+그 이후에, 각 w 값을 다음 업데이트 룰에 따라 갱신합니다. 여기서 <img src="http://mathurl.com/hur47e2.png"> 값은 learning rate이라고 하며 1보다 작은 값을 취합니다.
 
 <img src="http://mathurl.com/zhnolvv.png">
 
 위의 과정을 w값이 특정 값에 수렴할때까지 모든 데이터에 대해서 반복적으로 수행합니다. 참고로, 데이터 하나마다 w값을 업데이트 하는 것을
-incremental learning 이라고 하고, 모든 데이터에 대한 gradient를 모았다가 한번에 w값을 갱신하는 방법을 batch
-learning, 그리고 한정된 수 만큼의 데이터에 대한 gradient를 모았다가 갱신하는 방법을 mini-batch learning 이라고
-합니다. 자세한 내용은 Sarle, Warren, S(2002)의 [Neural Network
-FAQ2](ftp://ftp.sas.com/pub/neural/FAQ2.html)를 참고하세요.
+incremental learning 이라고 하고, 모든 데이터에 대한 gradient를 모았다가 한번에 w값을 갱신하는 방법을 batch learning, 그리고 한정된 수 만큼의 데이터에 대한 gradient를 모았다가 갱신하는 방법을 mini-batch learning 이라고
+합니다. 자세한 내용은 Sarle, Warren, S(2002)의 [Neural Network FAQ2](ftp://ftp.sas.com/pub/neural/FAQ2.html)를 참고하세요.
 
 ### Logistic Regression Model
 
@@ -68,8 +61,7 @@ regression 뒤에 붙이면 되는데요. 수식으로 표현하면 다음과 �
 앞의 예제에서 알아본 Caffe의 layer를 사용하면, 위의 선형 변환, 비선형 logistic 함수로 이루어진 두 단계를 두 층의
 layer를 이용하여 나타낼 수 있습니다. 바로 아래와 같은 inner product layer 와 softmax loss layer 입니다.
 
-<img src="https://raw.githubusercontent.com/DeepLearningStudy/caffe/master/noteb
-ook/logreg.jpg" alt="Drawing" style="width: 200px;"/>
+<img src="https://raw.githubusercontent.com/DeepLearningStudy/caffe/master/notebook/logreg.jpg" alt="Drawing" style="width: 200px;"/>
 
 위의 그래프에서 파란색 사각형은 layer를, 노란색 팔각형은 blob을 나타내는데요, inner product (ip) layer는 데이터를
 bottom blob으로 하고, 위의 수식에서 g(x)값인 ip라는 top blob을 생성합니다. ip layer 안에 파라미터 blob으로는
@@ -86,37 +78,25 @@ training data에서 정의된 label을 비교하여 loss를 계산합니다.
 앞에 강의에서 layer는 forward pass, backward pass를 계산할 수 있다는 것을 배웠는데요, LogReg 모델에서 두
 과정이 어떻게 계산이 되는지 알아보겠습니다.
 
-<img src="http://caffe.berkeleyvision.org/tutorial/fig/forward.jpg"
-style="width: 200px;"/>
-<img src="http://caffe.berkeleyvision.org/tutorial/fig/backward.jpg"
-style="width: 200px;"/>
+<img src="http://caffe.berkeleyvision.org/tutorial/fig/forward.jpg" style="width: 200px;"/>
+<img src="http://caffe.berkeleyvision.org/tutorial/fig/backward.jpg" style="width: 200px;"/>
 
 첫 번째 그림은 앞서 설명한 데이터로부터 g(x), h(z) 두 식을 이용하여 loss를 구하는 forward 과정을 나타내는 그림입니다.
-여기서 두 번째 그림인 backward 과정을 눈여겨 볼까 합니다. 먼저 forward pass로 부터 loss <img
-src="http://mathurl.com/zkay5c3.png">가 구해진 이후에, 각 class 별 확률값인 h(z)에 따른 loss의
-변화량 softmax gradient(<img src="http://mathurl.com/gl54ebu.png">)를 계산할 수 있습니다.
-MNIST dataset 인 경우에는 1개의 loss로부터 10개의 <img
-src="http://mathurl.com/gl54ebu.png">가 구해지겠죠.
+여기서 두 번째 그림인 backward 과정을 눈여겨 볼까 합니다. 먼저 forward pass로 부터 loss <img src="http://mathurl.com/zkay5c3.png">가 구해진 이후에, 각 class 별 확률값인 h(z)에 따른 loss의 변화량 softmax gradient(<img src="http://mathurl.com/gl54ebu.png">)를 계산할 수 있습니다. MNIST dataset 인 경우에는 1개의 loss로부터 10개의 <img src="http://mathurl.com/gl54ebu.png">가 구해지겠죠.
 
-각 softmax gradient로부터 입력 데이터의 차원수 만큼의 weight 값들의 gradient가 계산될 수 있는데요. 이를 <img
-src="http://mathurl.com/j5r3uju.png">라고 하면, 각 weight에 따른 loss의 변화량은 다음과 같은 chain
+각 softmax gradient로부터 입력 데이터의 차원수 만큼의 weight 값들의 gradient가 계산될 수 있는데요. 이를 <img src="http://mathurl.com/j5r3uju.png">라고 하면, 각 weight에 따른 loss의 변화량은 다음과 같은 chain
 rule 에 의해 구할 수 있습니다.
 
 <img src="http://mathurl.com/gvogf6p.png">
 
-이렇게 얻어진 각 weight의 gradient는 앞에서 소개한 weight update rule (<img
-src="http://mathurl.com/h4skdg3.png">)에 의해 weight를 갱신합니다.
+이렇게 얻어진 각 weight의 gradient는 앞에서 소개한 weight update rule (<img src="http://mathurl.com/h4skdg3.png">)에 의해 weight를 갱신합니다.
 
-Caffe의 layer에서 `Backward()` 함수는 이렇게 계산된 각 weight의 gradient (<img
-src="http://mathurl.com/hmh9r72.png">)를 layer의 `diff` 변수에 저장합니다. 그리고 `Update()`
-명령을 통해 weight update rule을 실행하게 됩니다.
+Caffe의 layer에서 `Backward()` 함수는 이렇게 계산된 각 weight의 gradient (<img src="http://mathurl.com/hmh9r72.png">)를 layer의 `diff` 변수에 저장합니다. 그리고 `Update()` 명령을 통해 weight update rule을 실행하게 됩니다.
 
 ## Example source code
 
 앞에서 설명한 LogReg 모델을 Caffe의 layer를 이용해서 직접 구현해보고, MNIST training dataset을 이용해 학습하고
-test dataset을 통해 모델의 예측 정확도를 측정해 봅시다. 먼저 깃헙에 있는 [ex5_logreg_mnist](https://github.com/DeepLearningStudy/caffe/tree/master/examples/ex5_logreg_mnist) 준비합니다. [ex_
-logreg_mnist.cpp](https://github.com/DeepLearningStudy/caffe/blob/master/example
-s/ex5_logreg_mnist/ex_logreg_mnist.cpp) 파일의 main 함수를 보면서 설명을 구현 과정을 설명 하겠습니다.
+test dataset을 통해 모델의 예측 정확도를 측정해 봅시다. 먼저 깃헙에 있는 [ex5_logreg_mnist](https://github.com/DeepLearningStudy/caffe/tree/master/examples/ex5_logreg_mnist) 준비합니다. [ex_logreg_mnist.cpp](https://github.com/DeepLearningStudy/caffe/blob/master/examples/ex5_logreg_mnist/ex_logreg_mnist.cpp) 파일의 main 함수를 보면서 설명을 구현 과정을 설명 하겠습니다.
 
 ### Data layer
 
@@ -145,18 +125,11 @@ DataLayer<Dtype> layer_data(layer_data_param);
 layer_data.SetUp(blob_bottom_data_vec, blob_top_data_vec);
 ```
 
-우선 [`DataParameter`](https://github.com/BVLC/caffe/blob/master/src/caffe/proto/c
-affe.proto#L565-L597)는 데이터셋의 위치와 타입, batch 크기를 결정합니다. 여기서는 앞에 [MNIST
-강좌](http://deeplearningstudy.github.io/material/doc_caffe_example_3mnist.html)에서
-설치한 mnist lmdb 경로를 지정해줍니다. 먼저 모델을 학습하기 위해 사용하는 training data로 data layer를 만듭니다. 
-[`TransformationParameter`](https://github.com/BVLC/caffe/blob/master/src/caffe/
-proto/caffe.proto#L398-417)는 데이터를 스케일링 할때 사용합니다. 여기서 MNIST 데이터는 0~255 사이의 값이므로,
-0~1로 정규화 하였습니다.
+우선 [`DataParameter`](https://github.com/BVLC/caffe/blob/master/src/caffe/proto/caffe.proto#L565-L597)는 데이터셋의 위치와 타입, batch 크기를 결정합니다. 여기서는 앞에 [MNIST 강좌](http://deeplearningstudy.github.io/material/doc_caffe_example_3mnist.html)에서 설치한 mnist lmdb 경로를 지정해줍니다. 먼저 모델을 학습하기 위해 사용하는 training data로 data layer를 만듭니다. [`TransformationParameter`](https://github.com/BVLC/caffe/blob/master/src/caffe/proto/caffe.proto#L398-417)는 데이터를 스케일링 할때 사용합니다. 여기서 MNIST 데이터는 0~255 사이의 값이므로, 0~1로 정규화 하였습니다.
 
 ### Inner product (ip) layer 
 
-두 번째로 ip layer를 만들어보겠습니다. ip layer는 data layer의 top blob인 `blob_data` 를 bottom
-blob으로 하고, `blob_top_ip` 를 생성합니다.
+두 번째로 ip layer를 만들어보겠습니다. ip layer는 data layer의 top blob인 `blob_data` 를 bottom blob으로 하고, `blob_top_ip` 를 생성합니다.
 
 ```
 vector<Blob<Dtype>*> blob_bottom_ip_vec;
@@ -177,15 +150,11 @@ InnerProductLayer<Dtype> layer_ip(layer_ip_param);
 layer_ip.SetUp(blob_bottom_ip_vec, blob_top_ip_vec);
 ```
 
-ip layer의 출력은 class 갯수(10) 만큼이며, ip layer의 [setting parameter](https://github.co
-m/BVLC/caffe/blob/master/src/caffe/proto/caffe.proto#L736-L756)를 통해 weight 및
-bias 값을 [xavier](http://andyljones.tumblr.com/post/110998971763/an-explanation-
-of-xavier-initialization) 방법을 이용하여 초기화 하였습니다.
+ip layer의 출력은 class 갯수(10) 만큼이며, ip layer의 [setting parameter](https://github.com/BVLC/caffe/blob/master/src/caffe/proto/caffe.proto#L736-L756)를 통해 weight 및 bias 값을 [xavier](http://andyljones.tumblr.com/post/110998971763/an-explanation-of-xavier-initialization) 방법을 이용하여 초기화 하였습니다.
 
 ### Softmax loss layer
 
-마지막으로 softmax loss layer를 세팅합니다. 위에 그림에서 보시는데로 ip layer의 top blob과 data layer의
-`blob_label` 을 입력으로 하고, loss 값을 `blob_top_loss` blob에 출력으로 저장합니다.
+마지막으로 softmax loss layer를 세팅합니다. 위에 그림에서 보시는데로 ip layer의 top blob과 data layer의 `blob_label` 을 입력으로 하고, loss 값을 `blob_top_loss` blob에 출력으로 저장합니다.
 
 ```
 vector<Blob<Dtype>*> blob_bottom_loss_vec;
