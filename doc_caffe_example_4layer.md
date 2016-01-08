@@ -119,8 +119,7 @@ layer`를 정의하고 `SetUp()`과 `Forward()` 기능만 다루도록 하겠습
 
 먼저 깃헙에서 [ex4_layer
 파일들](https://github.com/DeepLearningStudy/caffe/tree/master/examples/ex4_layer)을
-준비하시고, [main.cpp 파일](https://github.com/DeepLearningStudy/caffe/blob/master/exam
-ples/ex4_layer/main.cpp)을 열어봅니다. 이 예제에서는 임의로 20차원의 값을 가지는 10개의 데이터(10x20x1x1)를
+준비하시고, [main.cpp 파일](https://github.com/DeepLearningStudy/caffe/blob/master/examples/ex4_layer/main.cpp)을 열어봅니다. 이 예제에서는 임의로 20차원의 값을 가지는 10개의 데이터(10x20x1x1)를
 bottom blob에 생성하고, 각 데이터 별로 가장 큰 값을 가지는 차원의 수를 찾는 argmax 문제입니다.
 
 <img src="http://mathurl.com/jlfnenz.png">
@@ -137,8 +136,7 @@ filler.Fill(blob_bottom);
 
 `GaussianFiller` 역시 `FillerParameter`로 정의된 값을 가지는데요, 여기서는 아무 값도 정의하지 않은 기본값을
 사용합니다. 그럼 기본값은 어떻게 정의가 되어 있는지 알 수 있을까요? caffe에서는 모든 파라미터 정의는 위에서 본 proto파일에 정의가
-되어 있습니다. 그 중에서 [FillerParameter 부분](https://github.com/BVLC/caffe/blob/master/sr
-c/caffe/proto/caffe.proto#L43-L62) 을 보면, GaissianFiller에 대한 초기값은 아래처럼 설정되어 있는 것을
+되어 있습니다. 그 중에서 [FillerParameter 부분](https://github.com/BVLC/caffe/blob/master/src/caffe/proto/caffe.proto#L43-L62) 을 보면, GaissianFiller에 대한 초기값은 아래처럼 설정되어 있는 것을
 찾을 수 있습니다.
 
 ```
@@ -170,8 +168,7 @@ ArgMaxLayer<Dtype> layer(layer_param);
 layer.SetUp(blob_bottom_vec, blob_top_vec);
 ```
 
-`ArgMaxParameter`가 무슨 변수들을 가지는지는 역시 proto 파일에서 [해당부분](https://github.com/BVLC/ca
-ffe/blob/master/src/caffe/proto/caffe.proto#L466-L475)을 살펴보면 알 수 있습니다. 여기서는
+`ArgMaxParameter`가 무슨 변수들을 가지는지는 역시 proto 파일에서 [해당부분](https://github.com/BVLC/caffe/blob/master/src/caffe/proto/caffe.proto#L466-L475)을 살펴보면 알 수 있습니다. 여기서는
 `out_max_val`값을 `true`로 설정했는데요, 이는 top blob에 argmax 값 외에도 max값도 저장한다는 의미입니다. 즉
 top blob의 체널수가 2가 됩니다.
 
