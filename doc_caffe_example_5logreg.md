@@ -297,8 +297,7 @@ training data를 모두 다 학습하는데 사용하기 위해서는 최소 100
 
 ```
 testdata_param->set_batch_size(10000);
-testdata_param->set_source("/home/koosy/caffe/caffe/examples/mnist/mnist_test_lm
-db");
+testdata_param->set_source("caffe/caffe/examples/mnist/mnist_test_lmdb");
 testdata_param->set_backend(caffe::DataParameter_DB_LMDB);
 ```
 
