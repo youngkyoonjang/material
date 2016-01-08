@@ -114,8 +114,7 @@ src="http://mathurl.com/hmh9r72.png">)를 layer의 `diff` 변수에 저장합니
 ## Example source code
 
 앞에서 설명한 LogReg 모델을 Caffe의 layer를 이용해서 직접 구현해보고, MNIST training dataset을 이용해 학습하고
-test dataset을 통해 모델의 예측 정확도를 측정해 봅시다. 먼저 깃헙에 있는 [ex5_logreg_mnist](https://githu
-b.com/DeepLearningStudy/caffe/tree/master/examples/ex5_logreg_mnist) 준비합니다. [ex_
+test dataset을 통해 모델의 예측 정확도를 측정해 봅시다. 먼저 깃헙에 있는 [ex5_logreg_mnist](https://github.com/DeepLearningStudy/caffe/tree/master/examples/ex5_logreg_mnist) 준비합니다. [ex_
 logreg_mnist.cpp](https://github.com/DeepLearningStudy/caffe/blob/master/example
 s/ex5_logreg_mnist/ex_logreg_mnist.cpp) 파일의 main 함수를 보면서 설명을 구현 과정을 설명 하겠습니다.
 
