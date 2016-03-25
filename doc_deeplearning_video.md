@@ -37,4 +37,9 @@ NVIDIA 에서 만든 딥러닝 강의 영상들이네요. 도움이 많이 될 �
 
   * [비디오 링크](https://www.youtube.com/playlist?list=PL5B692fm6--tI-ijknnVZWbXU2H4JpSYe)
   
+### Lecture at Stanford 2016 (CS231n: Convolutional Neural Networks for Visual Recognition)
+Fei Fei Li 교수가 2016 봄에 스탠포트에서 강의한 16강 짜리 동영상 입니다.  
 
+   * [강좌홈페이지 (메인)](http://cs231n.stanford.edu/)
+   * [강의자료/비디오](http://cs231n.stanford.edu/syllabus.html)
+   * [학기말 프로젝트](http://cs231n.stanford.edu/reports2016.html)
